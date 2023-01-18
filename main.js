@@ -1,21 +1,37 @@
 // GET REQUEST
 function getTodos() {
-  console.log('GET Request');
+axios.get('https://jsonplaceholder.typicode.com/todos?_limit=5')
+.then(res=>showOutput(res))
+.catch(err=>console.log(err));
+
 }
 
 // POST REQUEST
 function addTodo() {
-  console.log('POST Request');
+  axios.post('https://jsonplaceholder.typicode.com/todos',{
+    title:'New Todo',
+    completed:'false'
+  })
+.then(res=>showOutput(res))
+.catch(err=>console.log(err));
 }
 
 // PUT/PATCH REQUEST
 function updateTodo() {
-  console.log('PUT/PATCH Request');
+  axios.patch('https://jsonplaceholder.typicode.com/todos/1',{
+    title:'updated Todo',
+    completed:'true'
+  })
+.then(res=>showOutput(res))
+.catch(err=>console.log(err));
 }
 
 // DELETE REQUEST
 function removeTodo() {
-  console.log('DELETE Request');
+  axios.delete('https://jsonplaceholder.typicode.com/todos/1',
+   )
+.then(res=>showOutput(res))
+.catch(err=>console.log(err));
 }
 
 // SIMULTANEOUS DATA
@@ -95,3 +111,4 @@ document
   .addEventListener('click', transformResponse);
 document.getElementById('error').addEventListener('click', errorHandling);
 document.getElementById('cancel').addEventListener('click', cancelToken);
+
